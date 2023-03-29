@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.IconButton
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
@@ -28,6 +29,7 @@ fun TextAndSendComposable(
         var text by remember { mutableStateOf(TextFieldValue("")) }
 
         TextField(
+            textStyle = LocalTextStyle.current.copy(color = Color.Black),
             modifier = Modifier.weight(1f),
             value = text,
             onValueChange = {

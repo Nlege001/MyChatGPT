@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,16 +28,21 @@ class MainActivity : ComponentActivity() {
             MyChatGPTTheme {
                 var chatData by remember { mutableStateOf(messageList) }
 
-                ChatScreen(
-                    modifier = Modifier,
-                    chatData = chatData,
-                    onSend = { send(it) },
-                )
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background,
+                ) {
+                    ChatScreen(
+                        modifier = Modifier,
+                        chatData = chatData,
+                        onSend = { onSend(it) },
+                    )
+                }
             }
         }
     }
 
-    private fun send(text: String) {
+    private fun onSend(text: String) {
         messageList.add(
             ChatData(
                 text = text,

@@ -33,7 +33,12 @@ fun TextAndSendComposable(
             onValueChange = {
                 text = it
             },
-            label = { Text(text = "Type here to chat with ChatGPT") },
+            label = {
+                Text(
+                    text = "Type here to chat with ChatGPT",
+                    color = Color.Gray,
+                )
+            },
         )
 
         IconButton(

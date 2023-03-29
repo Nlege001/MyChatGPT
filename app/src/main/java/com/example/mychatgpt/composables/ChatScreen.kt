@@ -1,5 +1,6 @@
 package com.example.mychatgpt.composables
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mychatgpt.composables.data.BubbleStyle
 import com.example.mychatgpt.composables.data.ChatData
@@ -23,7 +25,9 @@ fun ChatScreen(
     Column {
         LazyColumn(
             modifier = Modifier
-                .fillMaxWidth().weight(1f),
+                .fillMaxWidth()
+                .weight(1f)
+                .background(color = Color.LightGray),
         ) {
             items(chat) {
                 when (it.bubbleStyle) {
